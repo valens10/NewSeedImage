@@ -48,19 +48,6 @@ ul.topnav li a {
 
 }
 
-.center-content {
-    background-color: blue;
-    width: fit-content;
-    position: absolute;
-    top: 50%;
-    overflow: hidden;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-    text-align: center;
-}
-
 /*footer */
 .footer {
   position: fixed;
