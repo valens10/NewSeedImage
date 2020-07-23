@@ -1,3 +1,74 @@
-h4{
-    color: red;
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* navbar */
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #3330;
+  width: 100%;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+
+}
+
+ul.topnav li {float: right; margin-right: 10px;}
+
+ul.topnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ ul.topnav li a:hover:not(.active) {background-color: #111;}
+/*ul.topnav li a.active {background-color: #4CAF50;} */
+
+@media screen and (max-width: 600px) {
+  ul.topnav li {float: none;}
+  .center-content{
+    display: none;
+  }
+}
+/*Section content*/
+.Section-Content{
+  width: 100%;
+  height: 250px;
+  background-image: url("../media/section.jpg");
+  background-size: 100% 100%;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+
+}
+
+.center-content {
+    background-color: blue;
+    width: fit-content;
+    position: absolute;
+    top: 50%;
+    overflow: hidden;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+}
+
+/*footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #20ACF6;
+  color: white;
+  height: 86px;
+  text-align: center;
 }
