@@ -1,1 +1,1 @@
-# NewSeedImage
+# my-brand
