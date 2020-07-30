@@ -1,7 +1,8 @@
 .portfolia-container{
-    background-color: white;
+    background-color: #111213;
     width: 100%;
     height: 100%;
+    color: white;
     margin-top: 4%;
     position: absolute;
 }
@@ -13,16 +14,22 @@
     background-color: #20acf6;
     border: 0;
     outline: none;
+    color: white;
     border-radius: 20px;
 }
 
 .table-images{
-    width: 500px;
+    width: 55%;
     height: 500px;
     position: relative;
     float: right;
 }
 
-td img {
-    height: 249px;
+td{
+    height: 250px;
 }
+
+td img {
+    height: 100%;
+}
+

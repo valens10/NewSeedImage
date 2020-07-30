@@ -1,0 +1,43 @@
+td.login-form-td {
+    display: block;
+}
+table.login-table-container {
+    margin: auto;
+    background-image: url("../media/back_image.jpg");
+    margin-top: 8%;
+    border: 0;
+    border-radius: 10px;
+}
+
+form.login-form {
+    display: inline-block;
+    padding: 10px;
+    width: 360px;
+    font-size: 18px;
+}
+input.input-username, .input-password {
+    padding: 10px;
+    width: 300px;
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: #626879;
+    color: white;
+}
+
+.login-btn {
+    /* margin: auto; */
+    padding: 10px;
+    width: 300px;
+    color: wheat;
+    /* background: black; */
+    background-color: #20ACF6;
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 10px;
+    float: left;
+    margin: 5px;
+}

@@ -18,10 +18,12 @@ td{
 }
 .input-name,.input-email {
     width: 400px;
-    height: 25px;
-    background-color: #9e9e9efa;
+    height: 30px;
+    background-color: #626879;
     border-radius: 10px;
-    padding: 3px;
+    padding: 6px;
+    font-size: 16px;
+    color: white;
     border: 0;
     outline: none;
 }
@@ -32,7 +34,10 @@ textarea#message-input {
     outline: none;
     height: 90px;
     border-radius: 10px;
-    background-color: #9b9d9b;
+    font-size: 16px;
+    padding: 6px;
+    color: white;
+    background-color: #626879;
 }
 
 button.send-btn {

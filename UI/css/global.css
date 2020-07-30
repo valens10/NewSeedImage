@@ -49,10 +49,7 @@ li {
 .Section-Content{
   width: 100%;
   height: 100%;
-  background-image: url("../media/back_image.jpg");
-  /* Center and scale the image nicely */
-  background-position: right;
-  background-repeat: no-repeat;
+  background-color: #111213;
   background-size: cover;
   position: fixed;
   overflow: hidden;
@@ -66,9 +63,15 @@ li {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #20ACF6;
+  background-color: #111213;
   color: white;
   height: 86px;
   text-align: center;
+}
+
+.footer-view-white{
+  background-color: #20acf6;
+  height: 1px;
+  width: 100%;
 }
 
