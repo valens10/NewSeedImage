@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="./css/register.css">
     <link rel="stylesheet" href="css/login.css">
     <script src="js/global.js"></script>
     <title>My-brand</title>
@@ -23,35 +24,45 @@
     <div class="Section-Content">
         <div class="about-container">
             <div class="footer-view-white"></div>
-            <div class="login-content">
+            <div class="login-content" id="login-content">
                 <table class="login-table-container">
                     <tr>
                         <td>
-                            <img src="./media/img4.jpeg">
+                            <img src="./media/img4.jpeg"><br>
+                            <button class="btn-to-login">Have an account?</button>
                         </td>
                         <td class="login-form-td">
                             <h5>Register</h5>
-                            <form class="login-form">
-                                <input class="input-username" type="text" placeholder="Name"><br>
-                                <input class="input-username" type="text" placeholder="Email"><br>
-                                <input class="input-username" type="text" placeholder="Username"><br>
-                                <input class="input-password" type="password" placeholder="Password"><br>
-                                <input class="input-password" type="password" placeholder="Re-enter password"><br>
-                                <button class="login-btn">REGISTER</button>
+                            <form class="login-form" id="register-form" name="FormRegister">
+                                <input class="input-name" id="input-name" type="text" name="Name" placeholder="Full Name"><br>
+                                <div id="error-name"></div><br>
+
+                                <input class="input-email" id="input-email" type="email" name="Email" placeholder="Email"><br>
+                                <div id="error-email"></div><br>
+
+                                <input class="input-username" id="input-username" type="text" name="Username" placeholder="Username"><br>
+                                <div id="error-username"></div><br>
+
+                                <input class="input-password" id="input-password1" type="password" name="Password1" placeholder="Password"><br>
+                                <div id="error-password1"></div><br>
+
+                                <input class="input-password" id="input-password2" type="password" name="Password2" placeholder="Re-enter password"><br>
+                                <div id="error-password2"></div><br>
+                                <button class="login-btn" type="submit" value="submit" form="register-form">REGISTER</button>
                         </td>
                     </tr>
                 </table>
                 </form>
             </div>
         </div>
-
     </div>
-
 
     <div class="footer">
         <div class="footer-view-white"></div>
         <p>101 Avenue, KN 2AV Nyamirambo, RWANDA | Phone: +250-781-920-500 | Email: nsengvalens4@gmail.com</p>
         <p>Copyright © 2020 NY-BRAND</p>
     </div>
+
+    <script src="./js/register.js"></script>
 </body>
 </html>

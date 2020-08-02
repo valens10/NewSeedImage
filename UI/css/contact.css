@@ -4,6 +4,11 @@
     margin: 6%;
 
 }
+.Section-Content{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .cont-tile{
     float: left;
 }
@@ -24,13 +29,12 @@ td{
     padding: 6px;
     font-size: 16px;
     color: white;
-    border: 0;
     outline: none;
+    border-color: #626879;
 }
 
 textarea#message-input {
     width: 400px;
-    border: 0;
     outline: none;
     height: 90px;
     border-radius: 10px;

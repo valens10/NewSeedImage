@@ -1,0 +1,18 @@
+#about-container{
+    background-image: url("../media/jule1t\ 23.53.38.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: local;
+}
+
+.view {
+    width: 50%;
+    padding: 40px;
+    font-size: 70px;
+    margin: auto;
+    font-family: monospace;
+}
+
+p.heading-body {
+    color: #20ACF6;
+}

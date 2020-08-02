@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/about.css">
     <link rel="stylesheet" href="./css/contact.css">
-    <script src="js/global.js"></script>
+    <script src="./js/global.js"></script>
     <title>My-brand</title>
 </head>
 <body>
@@ -34,16 +34,20 @@
                 </tr>
                 <tr>
                     <td class="contact-form-container">
-                            <form class="contact-form"><br>
+                            <form class="contact-form" id="contact-form" name="FormMessage"><br>
                                 <label for="name"><b>Your Name</b></label><br>
-                                <input class="input-name" type="text" placeholder="Enter your name"><br>
+                                <input class="input-name" id="fullName" type="text" name="Name"><br>
+                                <div class="error-view" id="error-name-view"></div><br>
 
                                 <label for="name"><b>Email</b></label><br>
-                                <input class="input-email" type="email" placeholder="Enter your name"><br>
+                                <input class="input-email" id="email" type="email" name="Email"><br>
+                                <div id="error-email-view"></div><br>
 
                                 <label for="name"><b>Message</b></label><br>
-                                <textarea name="message" id="message-input" cols="30" rows="10"></textarea> <br>
-                                <button class="send-btn">SEND MESSAGE</button>
+                                <textarea name="Message" id="message-input" cols="30" rows="10"></textarea> <br>
+                                <div id="error-comment-view"></div><br>
+
+                                <button type="submit" value="submit" form="contact-form" class="send-btn">SEND MESSAGE</button>
 
                             </form>
                     </td>
@@ -72,5 +76,7 @@
         <p>101 Avenue, KN 2AV Nyamirambo, RWANDA | Phone: +250-781-920-500 | Email: nsengvalens4@gmail.com</p>
         <p>Copyright © 2020 NY-BRAND</p>
     </div>
+
+    <script src="./js/contact.js"></script>
 </body>
 </html>

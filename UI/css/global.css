@@ -7,6 +7,8 @@ body{
 }
 body, html {
   height: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 /* navbar */
 ul.topnav {
@@ -74,4 +76,5 @@ li {
   height: 1px;
   width: 100%;
 }
+
 
