@@ -91,6 +91,9 @@ function login(username, password) {
                 //check if the user exist in the database
                 if (childSnapshot.val().username == username && childSnapshot.val().password == pass_word) {
                     console.log("Successful logged in.!")
+                    passwordInput.value = "";
+                    usernameInput.value = "";
+                    window.location.href = "./blog.html";
                     return;
                 }
             })
