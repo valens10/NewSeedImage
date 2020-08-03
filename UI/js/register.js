@@ -12,6 +12,22 @@ const errorUsername = document.getElementById("error-username");
 const errorPassword1 = document.getElementById("error-password1");
 const errorpassword2 = document.getElementById("error-password2");
 
+// Web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAbd2vzRqdkf1NhchCLB8VA_aOjjEMzcRs",
+    authDomain: "my-brand-23221.firebaseapp.com",
+    databaseURL: "https://my-brand-23221.firebaseio.com",
+    projectId: "my-brand-23221",
+    storageBucket: "my-brand-23221.appspot.com",
+    messagingSenderId: "138479866391",
+    appId: "1:138479866391:web:1b0d275e8cf610c9df4252"
+  };
+  // Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const users = db.ref("/users");
+
+
 var name = "";
 var username = "";
 var email = "";
@@ -133,9 +149,46 @@ function validateRegisterForm() {
     }
 
     if (name, username, email, password) {
-        console.log("register params: ", name, email, username, password);
-        
+        //when all inputs are validated then call function to register
+        register(name, username, email, password);
     }
-
 }
+
+function register(name, username, email, password) {
+    const prof = {
+        name,
+        username,
+        email,
+        password
+    };
+    //push data to database
+    users.push(prof);
+
+    //reset register inputs
+    nameInput.value = "";
+    formEmail.value = "";
+    usernameInput.value = "";
+    passwordInput1.value = "";
+    passwordInput2.value = "";
+
+    // get data when child added
+    get_user_register();
+}
+
+update_data = data => {
+    console.log("user details from database: ",data.val());
+    const {
+        name,
+        email,
+        username,
+        password
+    } = data.val();
+    window.location.href = "./login.html";
+}
+
+function get_user_register() {
+    users.on("child_added", update_data);
+}
+
+
 
