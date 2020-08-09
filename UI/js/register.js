@@ -2,34 +2,15 @@
 const registerForm = document.getElementById("register-form");
 const nameInput = document.getElementById("input-name");
 const formEmail = document.getElementById("input-email");
-const usernameInput = document.getElementById("input-username");
 const passwordInput1 = document.getElementById("input-password1");
 const passwordInput2 = document.getElementById("input-password2");
 
 const errorName = document.getElementById("error-name");
 const errorEmail = document.getElementById("error-email");
-const errorUsername = document.getElementById("error-username");
 const errorPassword1 = document.getElementById("error-password1");
 const errorpassword2 = document.getElementById("error-password2");
 
-// Web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAbd2vzRqdkf1NhchCLB8VA_aOjjEMzcRs",
-    authDomain: "my-brand-23221.firebaseapp.com",
-    databaseURL: "https://my-brand-23221.firebaseio.com",
-    projectId: "my-brand-23221",
-    storageBucket: "my-brand-23221.appspot.com",
-    messagingSenderId: "138479866391",
-    appId: "1:138479866391:web:1b0d275e8cf610c9df4252"
-  };
-  // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-const users = db.ref("/users");
-
-
 var name = "";
-var username = "";
 var email = "";
 var password = "";
 
@@ -83,25 +64,6 @@ function validateRegisterForm() {
         formEmail.style.borderColor = "green"
     }
 
-    //validate username input
-    if (usernameInput.value == "") {
-        errorUsername.innerHTML = "This field is required";
-        errorUsername.style.color = "red";
-        usernameInput.style.borderColor = "red";
-        document.FormRegister.Username.focus();
-        return;
-    } else if (usernameInput.value.length < 6) {
-        errorUsername.innerHTML = "Username must be atleast 6 characters. ";
-        errorUsername.style.color = "red";
-        usernameInput.style.borderColor = "red";
-        document.FormRegister.Username.focus();
-        return;
-    } else {
-        username = usernameInput.value;
-        usernameInput.style.borderColor = "green";
-        errorUsername.innerHTML = "";
-    }
-
      //validate password input 1
     if (passwordInput1.value == "") {
         errorPassword1.innerHTML = "This field is required";
@@ -148,47 +110,26 @@ function validateRegisterForm() {
         passwordInput2.style.borderColor = "green";
     }
 
-    if (name, username, email, password) {
+    if (name, email, password) {
         //when all inputs are validated then call function to register
-        register(name, username, email, password);
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(cred => {
+                console.log("uuid:", cred.user.uid);
+                return users
+                    .child(cred.user.uid)
+                    .push()
+                    .set({
+                        name: name,
+                        email: email,
+                        is_admin:false
+                    });
+            })
+            .then(() => {
+                //reset form
+                FormRegister.reset();
+                window.location.href = "#login";
+            });
     }
 }
-
-function register(name, username, email, password) {
-    const prof = {
-        name,
-        username,
-        email,
-        password
-    };
-    //push data to database
-    users.push(prof);
-
-    //reset register inputs
-    nameInput.value = "";
-    formEmail.value = "";
-    usernameInput.value = "";
-    passwordInput1.value = "";
-    passwordInput2.value = "";
-
-    // get data when child added
-    get_user_register();
-}
-
-update_data = data => {
-    console.log("user details from database: ",data.val());
-    const {
-        name,
-        email,
-        username,
-        password
-    } = data.val();
-    window.location.href = "./login.html";
-}
-
-function get_user_register() {
-    users.on("child_added", update_data);
-}
-
 
 

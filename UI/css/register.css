@@ -9,8 +9,12 @@
     color: white;
     border-color: #626879;
 }
-
-.Section-Content{
-    overflow-x: hidden;
-    overflow-y: auto;
+button.btn-to-login {
+    padding: 5px;
+    width: 332px;
+    background-color: #20acf6;
+    border: 0;
+    outline: none;
+    float: left;
 }
+

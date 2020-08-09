@@ -1,7 +1,7 @@
 // declare contact form fields
 fullName = document.getElementById('fullName');
 message = document.getElementById('message-input');
-formEmail = document.getElementById('email');
+formEmailC = document.getElementById('email');
 contactForm = document.getElementById('contact-form');
 const errorName = document.getElementById('error-name-view');
 const errorEmail = document.getElementById('error-email-view');
@@ -40,26 +40,26 @@ function validateForm() {
     }
     
     //validate email
-    var atposition = formEmail.value.indexOf("@");  
-    var dotposition = formEmail.value.lastIndexOf(".");
-    if (formEmail.value == "") {
+    var atposition = formEmailC.value.indexOf("@");  
+    var dotposition = formEmailC.value.lastIndexOf(".");
+    if (formEmailC.value == "") {
         errorEmail.innerHTML = "This field is required. ";
         errorEmail.style.color = "red"
-        formEmail.style.borderColor = "red";
+        formEmailC.style.borderColor = "red";
         document.FormMessage.Email.focus();
         return
         
-    }else if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= formEmail.value.length) {
+    }else if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= formEmailC.value.length) {
         errorEmail.innerHTML = "Please enter a valid e-mail address";
         errorEmail.style.color = "red";
-        formEmail.style.borderColor = "red";
+        formEmailC.style.borderColor = "red";
         document.FormMessage.Email.focus();
         return;
          
     } else {
-        email = formEmail.value;
+        email = formEmailC.value;
         errorEmail.innerHTML = "";
-        formEmail.borderColor = "green"
+        formEmailC.borderColor = "green"
     }
     
     //validate message
@@ -75,11 +75,43 @@ function validateForm() {
         errorComment.innerHTML = "";
         message.style.borderColor = "green";
     }
+
+    function get_user_location() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+            return 0;
+        }
+    }
+
+    function showPosition(position) {
+        const userLoation = {
+            Latitude:position.coords.latitude,
+            Longitude:position.coords.longitude
+        }
+        return userLocation;
+
+        }
     
 
     //check all required inputs to be sent to server.
-    if (name,email,msg) {
-        console.log("contact param: ", name, email, msg);
+    if (name, email, msg) {
+        const location = {};
+        const locationData = get_user_location();
+        if (locationData) {
+            location = locationData;
+            console.log("location:", location);
+        }
+        const sms = {
+            id,
+            name,
+            email,
+            msg,
+            location 
+        };
+        messages.push(sms);
+        FormMessage.reset();
+        window.location.href = "#home";
     } else {
         return;
     }
