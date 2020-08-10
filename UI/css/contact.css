@@ -24,13 +24,12 @@ td{
 .input-name,.input-email {
     width: 400px;
     height: 30px;
-    background-color: #626879;
+    background-color: #78787836;
     border-radius: 10px;
     padding: 6px;
     font-size: 16px;
     color: white;
     outline: none;
-    border-color: #626879;
 }
 
 textarea#message-input {
@@ -41,7 +40,7 @@ textarea#message-input {
     font-size: 16px;
     padding: 6px;
     color: white;
-    background-color: #626879;
+    background-color: #78787836;
 }
 
 button.send-btn {
@@ -59,4 +58,17 @@ button.send-btn {
 label {
     font-size: larger;
     margin: 4px 0;
+}
+
+.address-contents {
+    text-align: end;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+h4#addrss {
+    text-align: end;
+    margin: 10px;
+    padding: 10px;
 }

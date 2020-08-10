@@ -5,16 +5,18 @@
     font-size: 16px;
     border-radius: 10px;
     margin: 5px;
-    background-color: #626879;
+    background-color: #78787836;
     color: white;
     border-color: #626879;
 }
 button.btn-to-login {
     padding: 5px;
-    width: 332px;
+    width: 262px;
     background-color: #20acf6;
     border: 0;
     outline: none;
     float: left;
+    margin-top: -32px;
+    position: relative;
 }
 

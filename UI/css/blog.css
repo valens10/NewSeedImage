@@ -82,26 +82,27 @@ section#posts h1 {
 
 section h1 {
   font-size: 2rem;
+  color: #20acf6;
 }
 
 /* Section Images */
 section#home {
-    background-color:darkcyan;
+    background-color:#111213;
   /* background: url('https://source.unsplash.com/bZZp1PmHI0E/1600x900') no-repeat center center/cover;; */
 }
 
 section#posts {
-    background-color: cadetblue;
+    background-color: #111213;
   /* background: url('https://source.unsplash.com/VRxo0yY-gyM/1600x900') no-repeat center center/cover;; */
 }
 
 section#register {
-    background-color: firebrick;
+    background-color: #111213;
   /* background: url('https://source.unsplash.com/K2tdx2mFDHc/1600x900') no-repeat center center/cover;; */
 }
 
 section#login {
-    background-color: cadetblue;
+    background-color: #111213;
   /* background: url('https://source.unsplash.com/2aAHlfDOhJM/1600x900') no-repeat center center/cover;; */
 }
 
@@ -145,7 +146,7 @@ img.prof-image{
   position: relative;
   width: 100%;
   height: 100px;
-  background-color: red;
+  background-color: #111213;
   text-align: center;
   right: 0;
   left: 0;
@@ -204,7 +205,7 @@ img.prof-image{
 }
 
 .gNav-link1 {
-  color: #000;
+  color: #fff;
   display: inline-block;
   font-size: 24px;
   font-weight: bold;
@@ -234,7 +235,7 @@ img.prof-image{
 .gNav-openBtn {
   --line_h: 2px;
   --btn_pLR: 13px;
-  background: #3740ff;
+  background: #20acf6;
   top: 4px;
   border: none;
   border-radius: 50%;
@@ -310,11 +311,14 @@ form.updateUserInfo {
 input#user-name-input, #user-email-input {
     width: 100%;
     margin: 2px;
+    color: white;
     /* border: 0; */
     outline: none;
     font-size: 20px;
     padding: 6px;
     border-radius: 5px;
+    background-color: #78787836;
+    border-color: #626879;
 }
 
 input#update-user-btn {
@@ -326,9 +330,23 @@ input#update-user-btn {
     outline: none;
     border-radius: 10px;
     color: white;
-    background-color: #084545;
+    background-color: #20acf6;
 }
 
 #right-panel{
   display: none;
+}
+
+.social.media.icons {
+    width: 200px;
+    height: 60px;
+    display: inline-flex;
+}
+
+span.welcome-blog{
+  font-size: 36px;
+}
+
+div#menuList-C {
+    background-color: #111213;
 }

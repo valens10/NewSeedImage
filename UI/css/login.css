@@ -5,7 +5,7 @@ input.input-username, .input-password {
     font-size: 16px;
     border-radius: 10px;
     margin: 5px;
-    background-color: #626879;
+    background-color: #78787836;
     color: white;
     border-color: #626879;
 }
@@ -29,10 +29,12 @@ input.input-username, .input-password {
 }
 
 button.btn-to-register {
-    width: 332px;
+    width: 263px;
     padding: 5px;
     border: 0;
     outline: none;
     background-color: #20acf6;
     float: left;
+    margin-top: -32px;
+    position: relative;
 }
