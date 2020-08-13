@@ -3,32 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/global.css">
-    <script src="js/global.js"></script>
-    <title>My-brand</title>
+    <title>>My-brand</title>
+    <link rel="stylesheet" href="./css/blog.css">
+    <link rel="stylesheet" href="./css/posts.css">
+    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="./css/login.css">
+
 </head>
 <body>
-    <!-- navBar -->
-    <ul class="topnav">
-        <li><a href="./index.html">Web</a></li>
-        <li><a href="./login.html">Login</a></li>
-        <li><a href="./register.html">Register</a></li>
-        <li><a href="./article.html">Articles</a></li>
-        <li><a href="./blog.html">Home</a></li>
-    </ul>>
 
-    <!--Section content-->
-    <div class="Section-Content">
-        <div class="center-content">
-            
-        </div>
+    <div class="container">
 
+    <header id="right-panel">
+  <div class="gNav-mask" aria-hidden="true" tabindex="-1" onclick="gNavClose();"></div>
+
+  <div id="gNav-beforeE" tabindex="-1" onfocus="chgFocus('.gNav-closeBtn');"></div>
+  <div class="gNav" id="menuList-C">
+    <div class="profile-picture">
+        <img src="./media/userl.png" alt="" srcset="">
     </div>
 
+    <nav>
+      <ul aria-label="Global navigation menu" class="ls--n">
+        <li>
+          <a href="#" class="gNav-link1 m0">Accounts</a>
+          <ul aria-label="Home submenu" class="ls--n">
+            <li class="lh--1" id="currentUser-info">
+                <!-- user infor view -->
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="/article/?category=all" class="gNav-link1">Others</a>
+          <ul aria-label="Article category" class="ls--n">
+            <li class="lh--1"><a href="#" class="gNav-link2">Reset password</a></li>
+            <li class="lh--1"><a href="./dashboard.html" class="gNav-link2">Dashboard</a></li>
+            <li class="lh--1"><a href="#" class="gNav-link2">Help</a></li>
+            <li class="lh--1"><a href="#" class="gNav-link2" onclick="signout()">Sign Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <button class="gNav-closeBtn" aria-label="Close global navigation menu" onclick="gNavClose();"></button>
+  <div id="gNav-afterE" tabindex="-1" onfocus="chgFocus('.searchCharaInput');"></div>
 
-    <div class="footer">
-        <p>101 Avenue, KN 2AV Nyamirambo, RWANDA | Phone: +250-781-920-500 | Email: nsengvalens4@gmail.com</p>
-        <p>Copyright © 2020 NY-BRAND</p>
-    </div>
+  <button class="gNav-openBtn" aria-label="Open global navigation menu" aria-controls="menuList-C" onclick="gNavOpen();"><span class="gNav-line"></span></button>
+</header>
+
+
+  <nav class="navbar">
+      <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#posts">Posts</a></li>
+          <li><a href="#register">Register</a></li>
+          <li><a href="#login">Login</a></li>
+          <li><a href="./index.html">Back to website</a></li>
+        </ul>
+      </nav>
+  <section id="home">
+      <div style="background-color: white; width: 100%; height: 1px;"></div>
+      <table>
+          <tr>
+              <td>
+                  <img class="prof-image" src="./media/prof.jpg" alt="" srcset="">
+              </td>
+              <td>
+                <div class="profile">
+                    <span class="welcome-blog">WELCOME, TO MY BLOG </span>
+                    <p class="my-name"><span>I AM YVAN VALENS NSENGIMANA</span></p>
+                    <p class="slog">Am a passionate software developer, open
+                        minded and always i am looking forward to improving my
+                        personal and professional skills.
+                    </p>
+                    <button class="cv-btn">Download cv</button>
+                </div>
+              </td>
+          </tr>
+      </table><br>
+
+
+      <table class="post-category-view-table">
+                <tr class="categories">
+                    <td>
+                        <h6>Category</h6>
+                    </td>
+                    <td>
+                        <img class="cate-image" src="./media/6.jpeg" alt="" srcset="">
+                        <a href="#"><p class="cat-list">Technology</p></a>
+                    </td>
+                    <td>
+                        <img class="cate-image" src="./media/6.jpeg" alt="" srcset="">
+                        <a class="cat-link" href="#"><p class="cat-list">Engineering</p></a>
+                    </td>
+                    <td>
+                        <img class="cate-image" src="./media/6.jpeg" alt="" srcset="">
+                        <a href="#"><p class="cat-list">Coding</p></a>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="heading-post">
+                <div class="center-heading">
+                   <a href="#posts"><h5>Go to posts</h5></a>
+
+                </div>
+            </div>
+
+  </section>
+  <section id="posts">
+      <div style="background-color: white; width: 100%; height: 1px;"></div>
+    <h1>All posts</h1>
+    <ul id="all-articles">
+        <!-- <li>
+            <a href="#">
+                <table class="table-article-page">
+                    <tr>
+                        <td rowspan="2">
+                            <i>Technology</i><br>
+                            <img class="post-image" src="./media/jule1t 23.53.38.jpeg" alt="" srcset="">
+                        </td>
+                        <td class="post-description">
+                            <b>Lorem ipsum, dolor sit amet consectetur adipisicing elit</b>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo minus ab incidunt architecto fuga deleniti rerum veniam. Asperiores, doloremque accusantium eos consectetur soluta qui eaque ea, quis nulla tempora eius?</p> <br>
+                            <div>like icons <i>123</i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="article-date">
+                            <i>Created by: <span>Yvan Valens</span> </i><br>
+                            <i>Posted at: Jan 27th 2020,</i>
+                        </td>
+                    </tr>
+                </table>
+            </a>
+            <div style="background-color: white; width: 100%; height: 2px;"></div>
+        </li> -->
+
+    </ul><br>
+    <button class="login-btn">LOAD MORE</button><br>
+    <div style="background-color: white; width: 100%; height: 1px;"></div>
+  </section>
+  <section id="register">
+      <h1>Register</h1>
+      <table class="login-table-container">
+                    <tr>
+                        <td>
+                            <img src="./media/img4.jpeg"><br>
+                            <button class="btn-to-login">Have an account?</button>
+                        </td>
+                        <td class="login-form-td">
+                            <form class="login-form" id="register-form" name="FormRegister">
+                                <input class="input-name" id="input-name" type="text" name="Name" placeholder="Full Name"><br>
+                                <div id="error-name"></div><br>
+
+                                <input class="input-email" id="input-email" type="email" name="Email" placeholder="Email"><br>
+                                <div id="error-email"></div><br>
+
+                                <input class="input-password" id="input-password1" type="password" name="Password1" placeholder="Password"><br>
+                                <div id="error-password1"></div><br>
+
+                                <input class="input-password" id="input-password2" type="password" name="Password2" placeholder="Re-enter password"><br>
+                                <div id="error-password2"></div><br>
+                                <button class="login-btn" type="submit" value="submit" form="register-form">REGISTER</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table><br><br>
+                <div style="background-color: white; width: 100%; height: 1px; margin-top: 10px;"></div>
+  </section>
+
+  <section id="login">
+      <h1>Login</h1>
+      <table class="login-table-container">
+                    <tr>
+                        <td>
+                            <img src="./media/img4.jpeg"><br>
+                            <button class="btn-to-register">Don't have an account?'</button>
+                        </td>
+                        <td class="login-form-td">
+                            <form id="login-form" class="login-form" name="FormLogin">
+                                <input class="input-username" id="inputL-username" type="email" name="UsernameL" placeholder="Email"><br>
+                                <div id="errorL-username"></div><br>
+
+                                <input class="input-password" id="inputL-password" type="password" name="PasswordL" placeholder="Password"><br>
+                                <div id="errorL-password"></div><br>
+
+                                <input type="checkbox" id="agree" name="remember me">
+                                <label for="agree"> Remember Me</label><br>
+                                <button class="login-btn" type="submit" value="submit" form="login-form">LOGIN</button>
+                            </form>    
+                        </td>
+                    </tr>
+                </table>
+
+                
+  </section>
+  <div class="footer">
+      <div style="background-color: white; width: 100%; height: 1px;"></div>
+      <table>
+          <tr>
+              <td>
+                  <p>101 Avenue, KN 2AV Nyamirambo, RWANDA | Phone: +250-781920500 <br> | Email: nsengvalens4@gmail.com <br> Copyright © 2020 My-brand</p>
+              </td>
+              <td>
+                 <!-- <div class="social media icons" style="float: right;">
+                    <img src="./media/icons8-facebook-circled-50.png" alt="" srcset=""> <img src="./media/icons8-twitter-squared-48.png" alt="" srcset=""> <img src="./media/icons8-whatsapp-100.png" alt="" srcset="">
+                  </div> -->
+              </td>
+          </tr>
+      </table>
+  </div>
+</div>
+    <!-- js configuration and import -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.8/uuid.min.js"></script>
+<script src="./js/firebase.js"></script>
+<script src="./js/blog.js"></script>
+<script src="./js/register.js"></script>
+<script src="./js/login.js"></script>
 </body>
 </html>

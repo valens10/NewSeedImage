@@ -4,6 +4,11 @@
     margin: 6%;
 
 }
+.Section-Content{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .cont-tile{
     float: left;
 }
@@ -18,21 +23,24 @@ td{
 }
 .input-name,.input-email {
     width: 400px;
-    height: 25px;
-    background-color: #9e9e9efa;
+    height: 30px;
+    background-color: #78787836;
     border-radius: 10px;
-    padding: 3px;
-    border: 0;
+    padding: 6px;
+    font-size: 16px;
+    color: white;
     outline: none;
 }
 
 textarea#message-input {
     width: 400px;
-    border: 0;
     outline: none;
     height: 90px;
     border-radius: 10px;
-    background-color: #9b9d9b;
+    font-size: 16px;
+    padding: 6px;
+    color: white;
+    background-color: #78787836;
 }
 
 button.send-btn {
@@ -50,4 +58,17 @@ button.send-btn {
 label {
     font-size: larger;
     margin: 4px 0;
+}
+
+.address-contents {
+    text-align: end;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+h4#addrss {
+    text-align: end;
+    margin: 10px;
+    padding: 10px;
 }

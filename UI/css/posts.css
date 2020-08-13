@@ -1,0 +1,45 @@
+.post-category-view-table{
+    width: 100%;
+    height: 168px;
+    margin-right: 10px;
+    background-color: #78787836;
+
+}
+
+img.post-image{
+    height: 150px;
+    width: 150px;
+}
+.table-article-page{
+    background-color: #272828;
+}
+
+td.post-description{
+    width: 700px;
+    text-align: left;
+}
+td.post-description p, b{
+    float: left;
+    margin-left: 8px;
+}
+td.post-description b{
+    font-size: 23px;
+}
+
+
+img.cate-image {
+    height: 100px;
+    margin: 0;
+}
+
+ul li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+td.article-date i{
+    float: right;
+}

@@ -1,28 +1,20 @@
-.portfolia-container{
-    background-color: white;
-    width: 100%;
-    height: 100%;
-    margin-top: 4%;
-    position: absolute;
-}
+
 .view-more-btn {
-    margin: auto;
     padding: 10px;
     width: 215px;
-    float: right;
     background-color: #20acf6;
     border: 0;
     outline: none;
+    color: white;
     border-radius: 20px;
 }
 
-.table-images{
-    width: 500px;
-    height: 500px;
-    position: relative;
-    float: right;
+
+.tr-image-section td{
+    height: 200px;
+
 }
 
 td img {
-    height: 249px;
+    width: 250px;
 }
