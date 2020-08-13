@@ -1,0 +1,74 @@
+.contact-table{
+    width: 100%;
+    padding: 16px;
+    margin: 6%;
+
+}
+.Section-Content{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.cont-tile{
+    float: left;
+}
+.contact-form-container{
+    display: block;
+}
+.address-contents{
+    display: block;
+}
+td{
+    width: 50%;
+}
+.input-name,.input-email {
+    width: 400px;
+    height: 30px;
+    background-color: #78787836;
+    border-radius: 10px;
+    padding: 6px;
+    font-size: 16px;
+    color: white;
+    outline: none;
+}
+
+textarea#message-input {
+    width: 400px;
+    outline: none;
+    height: 90px;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 6px;
+    color: white;
+    background-color: #78787836;
+}
+
+button.send-btn {
+    padding: 10px;
+    outline: none;
+    border: 0;
+    font-size: 12px;
+    border-radius: 20px;
+    width: 400px;
+    color: white;
+    margin-top: 8px;
+    background-color: #20acf6;
+}
+
+label {
+    font-size: larger;
+    margin: 4px 0;
+}
+
+.address-contents {
+    text-align: end;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+h4#addrss {
+    text-align: end;
+    margin: 10px;
+    padding: 10px;
+}

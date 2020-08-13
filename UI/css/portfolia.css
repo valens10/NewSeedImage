@@ -1,0 +1,20 @@
+
+.view-more-btn {
+    padding: 10px;
+    width: 215px;
+    background-color: #20acf6;
+    border: 0;
+    outline: none;
+    color: white;
+    border-radius: 20px;
+}
+
+
+.tr-image-section td{
+    height: 200px;
+
+}
+
+td img {
+    width: 250px;
+}
