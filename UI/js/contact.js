@@ -89,30 +89,26 @@ function validateForm() {
             Latitude:position.coords.latitude,
             Longitude:position.coords.longitude
         }
-        return userLocation;
+        const sms = {
+            id,
+            name,
+            email,
+            msg,
+            userLoation 
+        };
+        messages.push(sms);
+        FormMessage.reset();
+        window.location.href = "#home";
+
+        return console.log("userLoation",userLoation);
 
         }
     
 
     //check all required inputs to be sent to server.
     if (name, email, msg) {
-        const location = {};
-        const locationData = get_user_location();
-        if (locationData) {
-            location = locationData;
-            console.log("location:", location);
+        get_user_location();
         }
-        const sms = {
-            id,
-            name,
-            email,
-            msg,
-            location 
-        };
-        messages.push(sms);
-        FormMessage.reset();
-        window.location.href = "#home";
-    } else {
-        return;
-    }
- }
+        
+}
+ 

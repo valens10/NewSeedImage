@@ -58,23 +58,21 @@ function validate() {
 }
 
 
-function login() {
+async function login(username,password) {
+    const params = {
+            email:username,
+            password
+        }
 
-    auth.signInWithEmailAndPassword(username, password)
-        .then(cred => {
-            console.log("uuid:", cred.user.uid);
-            return users
-                .child(cred.user.uid)
-                .once('value')
-                .then(function (snapshot) {
-                    snapshot.forEach(function (childSnapshot) {
-                        console.log("name:", childSnapshot.val().name);
-                    });
-                });
-        })
-        .then(() => {
+    await axios.post(api_url + 'users/sign_in', params)
+        .then(res => {
             //reset form
             FormLogin.reset();
+            set_user(res.data.user);
+            sessionStorage.setItem("token", JSON.stringify(res.data.token));
             window.location.href = "#home";
-        });
+            rightPanel.style.display = "block";
+            getCurrentUser(res.data.user)
+        })
+        .catch(err => console.error(err))
 }

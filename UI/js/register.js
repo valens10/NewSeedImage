@@ -111,25 +111,25 @@ function validateRegisterForm() {
     }
 
     if (name, email, password) {
-        //when all inputs are validated then call function to register
-        auth.createUserWithEmailAndPassword(email, password)
-            .then(cred => {
-                console.log("uuid:", cred.user.uid);
-                return users
-                    .child(cred.user.uid)
-                    .push()
-                    .set({
-                        name: name,
-                        email: email,
-                        is_admin:false
-                    });
-            })
-            .then(() => {
-                //reset form
-                FormRegister.reset();
-                window.location.href = "#login";
-            });
+        signUp(name, email, password) //when all inputs are validated then call function to register
+
     }
+}
+
+async function signUp(name, email, password) {
+    const params = {
+        full_name: name,
+        email,
+        password
+        }
+
+    await axios.post(api_url + 'users/sign_up', params)
+        .then(res => {
+            //reset form
+            FormRegister.reset();
+            window.location.href = "#login";
+        })
+        .catch(err => console.error(err))
 }
 
 
