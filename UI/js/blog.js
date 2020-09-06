@@ -94,25 +94,31 @@ function signout() {
   
 }
 
-retrive_data = data => {
-  const ScreenPost = `<li>
+
+//list all articles on blog page
+list_all_articles()
+async function list_all_articles() {
+  await axios.get(api_url + 'articles')
+    .then(res => {
+      const articles = res.data;
+      articles.forEach(function (article) {
+        const ScreenPost = `<li>
             <a href="#">
                 <table class="table-article-page">
                     <tr>
                         <td rowspan="2">
-                            <i>Technology</i><br>
+                            <i>${article.category}</i><br>
                             <img class="post-image" src="./media/jule1t 23.53.38.jpeg" alt="" srcset="">
                         </td>
                         <td class="post-description">
-                            <b${data.val().title}</b>
-                            <p>${data.val().body}</p> <br>
-                            <div>like icons <i>123</i></div>
+                            <b${article.title}</b><br>
+                            <p>${article.description}</p> <br>
                         </td>
                     </tr>
                     <tr>
                         <td class="article-date">
-                            <i>Created by: <span>${data.val().created_by.name}</span> </i><br>
-                            <i>Posted at: ${data.val().created_at}</i>
+                            <i>Created by: <span>${article.user}</span> </i><br>
+                            <i>Posted at: ${article.Created_at}</i>
                         </td>
                     </tr>
                 </table>
@@ -120,8 +126,12 @@ retrive_data = data => {
             <div style="background-color: white; width: 100%; height: 2px;"></div>
         </li>`;
   allArticleScreen.innerHTML += ScreenPost;
+      
+  })
+        })
+    .catch(err => console.log('err', err))
 }
-posts.on("child_added", retrive_data);
+
 
 
 

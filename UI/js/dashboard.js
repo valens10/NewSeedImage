@@ -74,75 +74,117 @@ function AddZero(num) {
     return (num >= 0 && num < 10) ? "0" + num : num + "";
 }
 
-function post(post_title, post_body, post_category) {
-  var now = new Date();
-  var date_time = [[AddZero(now.getDate()),
-  AddZero(now.getMonth() + 1),
-  now.getFullYear()].join("/"),
-  [AddZero(now.getHours()),
-  AddZero(now.getMinutes())].join(":"),
-  now.getHours() >= 12 ? "PM" : "AM"].join(" ");
+async function post(post_title, post_body, post_category) {
   const article = {
-    id,
     title: post_title,
-    body: post_body,
-    category: post_category,
-    created_by:user_info,
-    created_at:date_time
+    description: post_body,
+    user: UserData.full_name,
+    category:post_category
   }
-
-  posts.push(article);
-  AddPostForm.reset();
-
+  await axios.post(api_url + 'articles',article)
+    .then(res => {
+      console.log('data', res.data);
+          AddPostForm.reset();
+        })
+    .catch(err => console.log('err', err))
 }
 
-Get_data = data => {
-  const postScreen = `<li class="list-of-article">
+//get all all articles
+list_all_articles()
+async function list_all_articles() {
+  await axios.get(api_url + 'articles')
+    .then(res => {
+      const articles = res.data;
+      articles.forEach(function (article) {
+      const postScreen = `<li class="list-of-article">
               <form action="" class="article-form-view">
-                <input type="text" id="title-post-view" value="${data.val().title}"><br>
-                <textarea name="Description" id="post-body" cols="30" rows="4">${data.val().body}</textarea> <br>
+                <input type="text" id="title-post-view" value="${article.title}"><br>
+                <textarea name="Description" id="post-body" cols="30" rows="4">${article.description}</textarea> <br>
                 <input type="submit" id="btn-update-post" value="Update"> <input type="submit" id="btn-delete-post" value="Delete">
-                <div class="created_by_view" style="float: right; margin-right: 20px;">Create by: <span>${data.val().created_by.name}</span> <br> Created at: <i style="color: red;">${data.val().created_at}</i></div>
+                <div class="created_by_view" style="float: right; margin-right: 20px;">Create by: <span>${article.user}</span> <br> Created at: <i style="color: red;">${article.Created_at}</i></div>
               </form>
               <div style="width: 100%; height: 1px; background-color: white;"></div>
           </li> `;
-  allPostScreen.innerHTML += postScreen;
+      allPostScreen.innerHTML += postScreen;
+  })
+        })
+    .catch(err => console.log('err', err))
 }
-//Get all articles
-posts.on("child_added", Get_data);
+
 
 
 //Get all users
-users.on('value',function (snapshot) {
-  snapshot.forEach(function (childSnapshot) {
-    childSnapshot.forEach(function (snap) {
-      var profView1 = `<tr>
-    <td>${snap.val().name}</td>
-    <td>${snap.val().email}</td>
-    <td><button>Update</button> <button>Delete</button></td>
+get_users()
+async function get_users() {
+  await axios.get(api_url + 'update_user/',{headers: {Authorization: token }})
+      .then(res => {
+          set_user_details(res.data)
+        })
+    .catch(err => console.log('err', err))
+}
+
+function set_user_details(users) {
+  console.log("users", users);
+  users.forEach(function (user) {
+    var profView1 = `<tr>
+    <td>${user.full_name}</td>
+    <td>${user.email}</td>
+    <td>${user.Created_at}</td>
+    <td><button class="btn-delete" onclick="delete_user('${user._id}')">Delete</button></td>
   </tr>`;
   usersScreen.innerHTML += profView1;
-      
-    });
   });
-});
+}
 
+get_all_messages()
 //get all messages/mails
-messages.on('value',function (snapshot) {
-  snapshot.forEach(function (childSnapshot) {
-    console.log("Messages:", childSnapshot.val());
+async function get_all_messages() {
+  await axios.get(api_url + 'messages',{headers: {Authorization: token }})
+    .then(res => {
+      console.log("messages", res.data);
+          set_mails_details(res.data)
+        })
+    .catch(err => console.log('err', err))
+}
+function set_mails_details(msgs) {
+  msgs.forEach(function (message) {
     const msgScreen = `<tr>
-    <td>${childSnapshot.val().name}</td>
-    <td>${childSnapshot.val().email}</td>
-    <td>${childSnapshot.val().msg}</td>
+    <td>${message.full_name}</td>
+    <td>${message.email}</td>
+    <td>${message.message}</td>
     <td>Kigali</td>
-    <td><button>Delete</button></td>
+    <td>${message.Created_at}</td>
+    <td><button onclick="delete_message('${message._id}')" class="btn-delete">Delete</button></td>
   </tr>`;
     mailsScreen.innerHTML += msgScreen;
-    
-  });
-});
+  })
+}
 
+async function delete_user(_id) {
+  const confirm_message = "Are you sure you want to delete this User";
+  if (await confim_delete(confirm_message)) {
+    await axios.delete(api_url + 'update_user/' + _id,{headers: {Authorization: token }})
+    .then(res => {
+      console.log("user", res.data);
+        })
+    .catch(err => console.log('err', err))
+  }
+}
 
-      
+async function delete_message(_id) {
+  const confirm_message = "Are you sure you want to delete this message";
+  if (await confim_delete(confirm_message)) {
+    await axios.delete(api_url + 'messages/' + _id,{headers: {Authorization: token }})
+    .then(res => {
+      console.log("messages", res.data);
+      get_users()
+        })
+    .catch(err => console.log('err', err))
+  }
+}
 
+function confim_delete(confirm_message) {
+  if (confirm(confirm_message)) {
+    return 1;
+  } else {return 0;}
+}

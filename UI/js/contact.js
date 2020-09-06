@@ -90,25 +90,23 @@ function validateForm() {
             Longitude:position.coords.longitude
         }
         const sms = {
-            id,
-            name,
+            full_name:name,
             email,
-            msg,
-            userLoation 
+            message:msg,
         };
-        messages.push(sms);
-        FormMessage.reset();
-        window.location.href = "#home";
-
-        return console.log("userLoation",userLoation);
-
-        }
-    
+        send_message(sms);
+    }
 
     //check all required inputs to be sent to server.
     if (name, email, msg) {
         get_user_location();
-        }
-        
+        }      
 }
  
+async function send_message(sms) {
+    await axios.post(api_url + 'messages',sms)
+      .then(res => {
+          FormMessage.reset();
+        })
+    .catch(err => console.log('err', err))
+}
