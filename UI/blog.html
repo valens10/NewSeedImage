@@ -11,7 +11,6 @@
 
 </head>
 <body>
-
     <div class="container">
 
     <header id="right-panel">
@@ -30,6 +29,13 @@
           <ul aria-label="Home submenu" class="ls--n">
             <li class="lh--1" id="currentUser-info">
                 <!-- user infor view -->
+                <!-- <form action="" class="updateUserInfo" id="updateUserInfo" name="UpdateUserInfo">
+                    <input id="user-name-input" type="text" name="Name" value="${childSnapshot.val().name}"><br>
+                    <input id="user-email-input" type="email" name="Email" value="${childSnapshot.val().email}"><br>
+                    <div id="error-user-input"></div><br><br>
+                    <input id="update-user-btn" type="submit" value="Update">
+                </form> -->
+
             </li>
           </ul>
         </li>
@@ -221,9 +227,13 @@
 <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.8/uuid.min.js"></script>
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script> 
+<script src="./js/api-service.js"></script>
 <script src="./js/firebase.js"></script>
 <script src="./js/blog.js"></script>
 <script src="./js/register.js"></script>
 <script src="./js/login.js"></script>
+<script src="./js/edit-profile.js"></script>
 </body>
 </html>

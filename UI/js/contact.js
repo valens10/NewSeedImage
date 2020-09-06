@@ -89,30 +89,24 @@ function validateForm() {
             Latitude:position.coords.latitude,
             Longitude:position.coords.longitude
         }
-        return userLocation;
-
-        }
-    
+        const sms = {
+            full_name:name,
+            email,
+            message:msg,
+        };
+        send_message(sms);
+    }
 
     //check all required inputs to be sent to server.
     if (name, email, msg) {
-        const location = {};
-        const locationData = get_user_location();
-        if (locationData) {
-            location = locationData;
-            console.log("location:", location);
-        }
-        const sms = {
-            id,
-            name,
-            email,
-            msg,
-            location 
-        };
-        messages.push(sms);
-        FormMessage.reset();
-        window.location.href = "#home";
-    } else {
-        return;
-    }
- }
+        get_user_location();
+        }      
+}
+ 
+async function send_message(sms) {
+    await axios.post(api_url + 'messages',sms)
+      .then(res => {
+          FormMessage.reset();
+        })
+    .catch(err => console.log('err', err))
+}
